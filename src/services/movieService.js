@@ -1,12 +1,14 @@
 import axios from 'axios';
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 export const fetchMovies = async (searchTerm, page) => {
   try {
     const response = await axios.get(`http://www.omdbapi.com`, {
       params: {
         s: searchTerm,
         page: page,
-        apikey: "cc83fbfe",
+        apikey: apiKey,
         type: "movie",
       },
     });
@@ -22,7 +24,7 @@ export const fetchMovieDetail = async (searchTerm, year) => {
     const response = await axios.get(`http://www.omdbapi.com`, {
       params: {
         t: searchTerm,
-        apikey: "cc83fbfe",
+        apikey: apiKey,
         year: year
       },
     });
